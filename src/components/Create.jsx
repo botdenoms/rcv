@@ -1,6 +1,6 @@
-const Create = () => {
+const Create = ({callback}) => {
     return (
-        <div className="create">
+        <div className="create" onClick={()=> callback()}>
             Create
         </div>
     );

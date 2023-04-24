@@ -10,19 +10,31 @@ import CreateForm from './components/CreateForm'
 function App() {
   const [tab, setTab] = useState(0)
 
-  const tabChange = ()=>{
-    setTab(tab + 1)
+  const newElection = ()=>{
+    // alert('new election')
+    setTab(1)
+  }
+
+  const close = ()=>{
+    setTab(0)
+  }
+
+  const cardView = ()=>{
+    alert('card clicked, vote of view results')
   }
 
   return (
     <div className="App">
       <AppBar/>
       {
-      tab === 0?<Home/>: 
-      tab === 1? <CreateForm/>
+      tab === 0?<Home callback={cardView} data={[1,2,3,4,5,7,5,4]}/>: 
+      tab === 1? <CreateForm close={close}/>
       :tab === 2?<Vote/>
       :<Results/>}
-      <Create/>
+      {
+        tab !== 1? <Create callback={newElection}/>:<></>
+      }
+      
     </div>
   )
 }
