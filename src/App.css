@@ -7,7 +7,8 @@
 #root {
   width: 100vw;
   height: 100vh;
-  /* background-color: white; */
+  background-color: white;
+  overflow-x: hidden;
 }
 
 .appbar{
@@ -43,7 +44,7 @@
 }
 
 .create{
-  position: absolute;
+  position: fixed;
   bottom: 40px;
   right: 40px;
   cursor: pointer;
@@ -54,9 +55,10 @@
 }
 
 .home{
-  /* background: red; */
+  background: white;
   height: 100%;
   padding: 0 20px 20px 20px;
+  overflow: hidden;
 }
 
 .tabs{
@@ -78,9 +80,13 @@
 }
 
 .card{
+  cursor: pointer;
   display: flex;
   height: 200px;
   width: 400px;
+  color: #2b3b66;
+  padding: 10px;
+  margin: 10px;
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -90,4 +96,55 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.span-title{
+  font-size: 18px;
+  color: #1e1e1e;
+}
+
+.span-date{
+  font-size: 14px;
+  color: #11c1cc;
+}
+
+.create-form{
+  background: white;
+  height: 100%;
+  margin: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+}
+
+span{
+  font-size: 20px;
+  color: #2b3b66;
+}
+
+.close{
+  height: 28px;
+  width: 28px;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  cursor: pointer;
 }
