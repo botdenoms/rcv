@@ -1,18 +1,24 @@
 import { useState } from 'react'
+import CandidateAddModal from './CandidateAddModal'
 import CandidateCard from './CandidateCard'
 
 const CreateForm = ({close}) => {
 
     const [candidates, setCandidates] = useState([])
+    const [open, setOpen] = useState(false)
 
     const addCandidate = ()=>{
         var temp = candidates
         temp.push(0)
         setCandidates([...temp])
+        setOpen(false)
     }
 
     return (
         <div className="create-form">
+            {
+                open && <CandidateAddModal close={setOpen} add={addCandidate}/>
+            }
             <div className="top">
                 <span className='span-head'>New election</span>
                 <div className="close" onClick={()=>close()}>
@@ -36,7 +42,7 @@ const CreateForm = ({close}) => {
                         </div>
                     }
                 </div>
-                <div className="add" onClick={()=>addCandidate()}>+</div>
+                <div className="add" onClick={()=>setOpen(true)}>+</div>
             </div>
             <div className="form-rows">
                 <input className="chk-box" type="checkbox"/>
