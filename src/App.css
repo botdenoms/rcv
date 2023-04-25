@@ -208,10 +208,61 @@ input:focus{
 }
 
 .cand-card{
+  transition: 2s;
   height: 120px;
-  width: 120px;
-  background: #1e1e1e;
+  /* width: 120px; */
+  min-width: 120px;
+  /* background: #1e1e1e; */
   margin: 1px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2px;
+  margin: 5px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  cursor: pointer;
+}
+
+.cand-card:hover .cc-card{
+  visibility: visible;
+  transition: 1s;
+}
+
+.img-box{
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.cand-pic{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.party-pic{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.cc-card{
+  position: relative;
+  top: -3px;
+  left: 40%;
+  z-index: 10;
+  visibility: hidden;
+}
+
+.more{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .empty{
@@ -229,3 +280,4 @@ input:focus{
   height: 18px;
   width: 18px;
 }
+
