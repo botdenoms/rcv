@@ -1,5 +1,5 @@
 export default function Vote() {
   return (
-    <div>Vote</div>
+    <div className="vote">Vote</div>
   )
 }

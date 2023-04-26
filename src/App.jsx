@@ -19,20 +19,28 @@ function App() {
     setTab(0)
   }
 
-  const cardView = ()=>{
-    alert('card clicked, vote of view results')
+  const cardView = (index)=>{
+    // to results or vote page
+    if (index === 0) {
+      setTab(2)
+    }else if(index === 1){
+      setTab(2)
+    }else{
+      setTab(3)
+    }
+    // alert('card clicked, vote of view results')
   }
 
   return (
     <div className="App">
-      <AppBar/>
+      <AppBar home={close}/>
       {
       tab === 0?<Home callback={cardView} data={[1,2,3,4,5,7,5,4]}/>: 
       tab === 1? <CreateForm close={close}/>
       :tab === 2?<Vote/>
       :<Results/>}
       {
-        tab !== 1? <Create callback={newElection}/>:<></>
+        tab !== 1 && tab !== 2 && <Create callback={newElection}/>
       }
       
     </div>

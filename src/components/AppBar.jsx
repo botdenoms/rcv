@@ -1,7 +1,7 @@
-function AppBar() {
+function AppBar({home}) {
     return (
       <div className="appbar">
-        <span>RCV</span>
+        <span onClick={()=>home()}>RCV</span>
         <span>?</span>
       </div>
     )

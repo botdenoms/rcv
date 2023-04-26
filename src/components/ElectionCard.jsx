@@ -1,8 +1,8 @@
 import reactLogo from '../assets/react.svg'
 
-export default function ElectionCard({callback}) {
+export default function ElectionCard({callback, tab}) {
   return (
-    <div className="card" onClick={()=>callback()}>
+    <div className="card" onClick={()=>callback(tab)}>
       <img alt="text" src={reactLogo}/>
       <div className="textbox">
       <span className='span-title'>name/title</span>

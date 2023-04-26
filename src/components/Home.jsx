@@ -20,7 +20,7 @@ export default function Home({callback, data}) {
             </div>
             <div className="content">
                 {
-                    data.map((v,i)=> <ElectionCard callback={callback} key={i}/>)
+                    data.map((v,i)=> <ElectionCard callback={callback} key={i} tab={tab}/>)
                 }
             </div>
         </div>

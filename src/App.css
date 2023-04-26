@@ -115,6 +115,7 @@
 }
 
 .create-form{
+  padding: 10px 20px;
   background: white;
   height: 100%;
   margin: 20px;
@@ -228,8 +229,8 @@ input:focus{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
-  padding: 10px 20px 10px 20px;
+  /* margin: 5px; */
+  /* padding: 10px 20px 10px 20px; */
 }
 
 .cad-list{
@@ -335,3 +336,32 @@ input:focus{
   width: 18px;
 }
 
+.vote{
+  padding: 10px 20px;
+  background: white;
+  color: #1e1e1e;
+  height: 100%;
+  margin: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.results{
+  padding: 10px 20px;
+  background: white;
+  color: #1e1e1e;
+  height: 100%;
+  margin: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+}

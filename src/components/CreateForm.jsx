@@ -14,6 +14,16 @@ const CreateForm = ({close}) => {
         setOpen(false)
     }
 
+    const removeCandidate = () =>{
+        var temp = candidates
+        temp.pop()
+        setCandidates([...temp])
+    }
+
+    const createElection = ()=>{
+        close()
+    }
+
     return (
         <div className="create-form">
             {
@@ -35,7 +45,7 @@ const CreateForm = ({close}) => {
                 <div className="cad-list">
                     {
                         candidates.length > 0? 
-                        candidates.map((v, i)=> <CandidateCard key={i}/>):
+                        candidates.map((v, i)=> <CandidateCard key={i} remove={removeCandidate}/>):
                         <div className='empty'>
                            <span>No Candidates present</span> 
                            <span>Add one below</span> 
@@ -52,6 +62,12 @@ const CreateForm = ({close}) => {
                 <input className="chk-box" type="checkbox"/>
                 <span>Anonimous casting</span>
             </div>
+            {
+                candidates.length > 1 && 
+                <div className="form-rows">
+                    <button type="submit" onClick={()=>createElection()}>Create</button>
+                </div> 
+            }
         </div>
     );
 }
