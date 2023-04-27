@@ -28,9 +28,9 @@ export default function Vote() {
         <span className="notice">duration end</span>
       </div>
       <div className="view-more">
-        <span className='toggle' onClick={()=>toggle(0)}>
+        <span className='toggle' onClick={()=>toggle()}>
           Candidates
-          <div className="drop-down" ref={drp}></div> 
+          <div className="drop-down down" ref={drp}></div> 
         </span>
         <div className="view-list">
           {

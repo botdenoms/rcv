@@ -293,6 +293,12 @@ input:focus{
   overflow: hidden;
 }
 
+.profile{
+  height: 36px;
+  width: 36px;
+  margin-right: 10px;
+}
+
 .cand-pic{
   height: 100%;
   width: 100%;
@@ -303,7 +309,7 @@ input:focus{
   height: 18px;
   width: 18px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin: 0 5px;
 }
 
 .cc-card{
@@ -402,9 +408,18 @@ input:focus{
   overflow-x: auto;
 }
 
+.row-div-center{
+  display: flex;
+  align-items: center;
+}
+
 .notice{
   font-size: 12px;
   color: red;
+}
+
+.notice-win{
+  color: #398655;
 }
 
 select, .select-box{
@@ -446,7 +461,10 @@ option{
   margin: 0 10px;
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
   transition: all 200ms;
-  /* transform: rotateZ(180deg); */
+}
+
+.down{
+  transform: rotateZ(180deg);
 }
 
 .select-options{
