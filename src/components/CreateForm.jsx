@@ -36,7 +36,7 @@ const CreateForm = ({close}) => {
                 </div>
             </div>
             <div className="form-rows">
-                <input type="text" name="title" id=""  placeholder="Election title"/>
+                <input type="text" placeholder="Election title"/>
             </div>
             <div className="form-rows">
                 <textarea placeholder="Election Description" cols="30" rows="5"></textarea>
@@ -61,6 +61,14 @@ const CreateForm = ({close}) => {
             <div className="form-rows">
                 <input className="chk-box" type="checkbox"/>
                 <span>Anonimous casting</span>
+            </div>
+            <div className="form-rows">
+                <span className='lable-type'>Date</span>
+                <input type="date" placeholder='mm/dd/yyyy'/>
+            </div>
+            <div className="form-rows">
+                <span className='lable-type'>Duration</span>
+                <input type="date" placeholder='mm/dd/yyyy'/>
             </div>
             {
                 candidates.length > 1 && 

@@ -177,8 +177,9 @@ textarea, input{
   color: #1e1e1e;
 }
 
-input:focus{
-  background: #11c1cc;
+textarea,input:focus{
+  /* background: #11c1cc; */
+  outline: none;
 }
 
 .picker{
@@ -440,6 +441,9 @@ option{
   background: #11c1cc;
 }
 
+.lable-type{
+  margin: 5px;
+}
 
 .small{
   height: 20px;
