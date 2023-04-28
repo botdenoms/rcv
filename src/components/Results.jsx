@@ -2,10 +2,10 @@ import reactLogo from '../assets/react.svg'
 import {useState, useRef} from 'react'
 import CandidateCard from './CandidateCard'
 
-export default function Results({}) {
+export default function Results({election}) {
   const cands = useRef(null)
   const rounds = useRef(null)
-  const [candidates, setCandidates] = useState([2,5,7])
+  const [candidates, setCandidates] = useState(election.candidates)
   const [viewC, setViewC] = useState(true)
   const [viewR, setViewR] = useState(true)
 
@@ -30,8 +30,8 @@ export default function Results({}) {
   return (
     <div className="results">
       <div className="info">
-        <span>Election title</span>
-        <span className="notice">election date</span>
+        <span>{election.title}</span>
+        <span className="notice">On: {election.date}</span>
       </div>
       <div className="info">
         <span className="notice-win">winner</span>
@@ -51,7 +51,7 @@ export default function Results({}) {
         </span>
         <div className="view-list">
           {
-            viewC && candidates.map((v, i)=> <CandidateCard key={i} view={true}/>)
+            viewC && candidates.map((v, i)=> <CandidateCard key={i} view={true} data={v}/>)
           }
         </div>
       </div>

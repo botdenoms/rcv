@@ -411,6 +411,13 @@ textarea,input:focus{
   cursor: pointer;
 }
 
+.cand-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .choice-card{
   position: relative;
   display: flex;
