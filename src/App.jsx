@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import AppBar from './components/AppBar'
 import Create from './components/Create'
@@ -8,7 +8,20 @@ import Results from './components/Results'
 import CreateForm from './components/CreateForm'
 
 function App() {
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
   const [tab, setTab] = useState(0)
+  const [elections, setElections] = useState([])
+
+  const loadData = async()=>{
+    const resp = await fetch("/elections.json")
+    const data = await resp.json()
+    setElections([...data])
+    // console.log(await resp.json())
+  }
 
   const newElection = ()=>{
     // alert('new election')
@@ -35,7 +48,7 @@ function App() {
     <div className="App">
       <AppBar home={close}/>
       {
-      tab === 0?<Home callback={cardView} data={[1,2,3,4,5,7,5,4]}/>: 
+      tab === 0?<Home callback={cardView} data={elections}/>: 
       tab === 1? <CreateForm close={close}/>
       :tab === 2?<Vote/>
       :<Results/>}
