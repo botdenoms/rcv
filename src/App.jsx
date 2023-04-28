@@ -15,12 +15,15 @@ function App() {
 
   const [tab, setTab] = useState(0)
   const [elections, setElections] = useState([])
+  const [election, setElection] = useState({})
+  const [loading, setLoading] = useState(true)
 
   const loadData = async()=>{
     const resp = await fetch("/elections.json")
     const data = await resp.json()
     setElections([...data])
-    // console.log(await resp.json())
+    setLoading(false)
+    console.log(data)
   }
 
   const newElection = ()=>{
@@ -32,8 +35,9 @@ function App() {
     setTab(0)
   }
 
-  const cardView = (index)=>{
+  const cardView = (index, elec={})=>{
     // to results or vote page
+    setElection(elec)
     if (index === 0) {
       setTab(2)
     }else if(index === 1){
@@ -41,21 +45,25 @@ function App() {
     }else{
       setTab(3)
     }
-    // alert('card clicked, vote of view results')
   }
 
   return (
     <div className="App">
       <AppBar home={close}/>
+      { loading && <div className='list-empty'>loading...</div> }
+      { tab === 0 && !loading && <Home callback={cardView} data={elections}/>}
       {
-      tab === 0?<Home callback={cardView} data={elections}/>: 
-      tab === 1? <CreateForm close={close}/>
-      :tab === 2?<Vote/>
-      :<Results/>}
+        tab === 1 && !loading && <CreateForm close={close}/>
+      }
+      {
+        tab === 2 && !loading && <Vote election={election} close={close}/>
+      }
+      {
+        tab > 2 && !loading && <Results election={election} close={close}/>
+      }
       {
         tab !== 1 && tab !== 2 && <Create callback={newElection}/>
       }
-      
     </div>
   )
 }

@@ -12,8 +12,8 @@ export default function Home({callback, data=[]}) {
 
     const listFilter = (index)=>{
         const today = new Date(Date.now())
-        const date = today.getDate().toString()
-        const month = today.getMonth().toString()
+        const date = today.getDate()
+        const month = today.getMonth() + 1
         const year = today.getFullYear()
         switch (index) {
             case 0:
@@ -103,7 +103,7 @@ export default function Home({callback, data=[]}) {
                 </div>
             </div>
             <div className="content">
-                { scope.length === 0 && <div className='list-empty'> NO data at the moment</div>}
+                { scope.length === 0 && <div className='list-empty'> No data at the moment</div>}
                 {
                     scope.length !== 0 && scope.map((v,i)=> <ElectionCard callback={callback} key={i} tab={tab} data={v}/>)
                 }

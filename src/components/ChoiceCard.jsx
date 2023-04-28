@@ -1,9 +1,11 @@
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 
 import reactLogo from '../assets/react.svg'
 
 export default function ChoiceCard({choice, list=[]}) {
     const drp = useRef(null)
+    const [picked, setPicked] = useState(false)
+    const [choiceIdx, setChoiceIdx] = useState(0)
     const choicePos = (pos)=>{
         switch (pos) {
             case 1:
@@ -24,6 +26,8 @@ export default function ChoiceCard({choice, list=[]}) {
 
     const selectPick = (index)=>{
         drp.current.style.display = 'none'
+        setChoiceIdx(index)
+        setPicked(true)
         // make picked the current item
     }
 
@@ -33,7 +37,10 @@ export default function ChoiceCard({choice, list=[]}) {
             <div className="select-box" onClick={()=>selectChoices()}>
                 <div className="select-view">
                     <img className='small' src={reactLogo} alt="test"/>
-                    <span>candidate name</span>
+                    <span>
+                        {!picked && "Your Choice"}
+                        {picked && list[choiceIdx].name}
+                    </span>
                     <div className="drop-down"></div>
                 </div>
             </div>
@@ -43,7 +50,7 @@ export default function ChoiceCard({choice, list=[]}) {
                         return(
                             <div className="select-view" key={i} onClick={()=>selectPick(i)}>
                                 <img className='small' src={reactLogo} alt="test"/>
-                                <span>candidate name</span>
+                                <span>{v.name}</span>
                             </div>
                         )
                     })

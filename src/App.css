@@ -168,6 +168,12 @@ span{
   cursor: pointer;
 }
 
+.end{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
 .add{
   user-select: none;
   height: 28px;
@@ -253,11 +259,10 @@ textarea,input:focus{
 }
 
 .cand-card{
+  position: relative;
   transition: 2s;
   height: 120px;
-  /* width: 120px; */
   min-width: 120px;
-  /* background: #1e1e1e; */
   margin: 1px;
   border-radius: 5px;
   display: flex;
@@ -326,7 +331,7 @@ textarea,input:focus{
 
 .cc-card{
   position: relative;
-  top: -3px;
+  top: -10%;
   left: 40%;
   z-index: 10;
   visibility: hidden;

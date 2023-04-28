@@ -2,7 +2,7 @@ import React from 'react'
 
 import reactLogo from '../assets/react.svg'
 
-export default function CandidateCard({remove, view=false}) {
+export default function CandidateCard({remove, view=false, data={}}) {
   return (
     <div className='cand-card'>
       {
@@ -15,10 +15,11 @@ export default function CandidateCard({remove, view=false}) {
         <img src={reactLogo} className='cand-pic' alt="candidate" />
       </div>
       <div className="cand-info">
-        <span>candidate name</span>
+        <span>{data.name}</span>
         <div className="more">
-          <img src={reactLogo} className='party-pic' alt="candidate" />
-          <span>party name</span>
+          {data.party === "" && "No party"}
+          {data.party !== "" && <img src={reactLogo} className='party-pic' alt="candidate" />}
+          {data.party !== "" && <span>{data.party}</span>}
         </div>
       </div>
     </div>
