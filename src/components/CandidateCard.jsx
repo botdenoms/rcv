@@ -2,12 +2,12 @@ import React from 'react'
 
 import reactLogo from '../assets/react.svg'
 
-export default function CandidateCard({remove, view=false, data={}}) {
+export default function CandidateCard({remove, index, view=false, data={}}) {
   return (
     <div className='cand-card'>
       {
         !view &&
-        <div className="close cc-card" onClick={()=>remove()}>
+        <div className="close cc-card" onClick={()=>remove(index)}>
          x
         </div>
       }

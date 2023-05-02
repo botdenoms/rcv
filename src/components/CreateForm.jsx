@@ -14,9 +14,13 @@ const CreateForm = ({close}) => {
         setOpen(false)
     }
 
-    const removeCandidate = () =>{
-        var temp = candidates
-        temp.pop()
+    const removeCandidate = (index) =>{
+        var temp = []
+        candidates.forEach((v, i)=>{
+            if (i !== index) {
+                temp.push(v)
+            }
+        })
         setCandidates([...temp])
     }
 
@@ -45,7 +49,7 @@ const CreateForm = ({close}) => {
                 <div className="cad-list">
                     {
                         candidates.length > 0? 
-                        candidates.map((v, i)=> <CandidateCard key={i} remove={removeCandidate}/>):
+                        candidates.map((v, i)=> <CandidateCard key={i} index={i} remove={removeCandidate}/>):
                         <div className='empty'>
                            <span>No Candidates present</span> 
                            <span>Add one below</span> 
