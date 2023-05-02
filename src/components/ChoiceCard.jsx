@@ -2,10 +2,13 @@ import {useRef, useState} from 'react'
 
 import reactLogo from '../assets/react.svg'
 
-export default function ChoiceCard({choice, list=[]}) {
+export default function ChoiceCard({choice, list=[], guide}) {
     const drp = useRef(null)
+    const drpicon = useRef(null)
     const [picked, setPicked] = useState(false)
+    const [opened, setOpened] = useState(false)
     const [choiceIdx, setChoiceIdx] = useState(0)
+
     const choicePos = (pos)=>{
         switch (pos) {
             case 1:
@@ -21,19 +24,33 @@ export default function ChoiceCard({choice, list=[]}) {
 
     const selectChoices = ()=>{
         //open options
+        if(opened){
+            drp.current.style.display = 'none'
+            setOpened(!opened)
+            drpicon.current.style.transform = `rotateZ(0deg)`
+            return
+        }
         drp.current.style.display = 'block'
+        drpicon.current.style.transform = `rotateZ(180deg)`
+        setOpened(!opened)
     }
 
     const selectPick = (index)=>{
         drp.current.style.display = 'none'
         setChoiceIdx(index)
-        setPicked(true)
-        // make picked the current item
+        setOpened(false)
+        drpicon.current.style.transform = `rotateZ(0deg)`
+        if (list.length == 1) {
+            setPicked(true)
+        }else{
+            setPicked(false)
+        }
+        guide(choice, index)
     }
 
     return (
         <div className='choice-card'>
-            <span>{choicePos(choice)}</span>
+            <span className='bg-text'>{choicePos(choice + 1)}</span>
             <div className="select-box" onClick={()=>selectChoices()}>
                 <div className="select-view">
                     <img className='small' src={reactLogo} alt="test"/>
@@ -41,7 +58,7 @@ export default function ChoiceCard({choice, list=[]}) {
                         {!picked && "Your Choice"}
                         {picked && list[choiceIdx].name}
                     </span>
-                    <div className="drop-down"></div>
+                    <div ref={drpicon} className="drop-down"></div>
                 </div>
             </div>
             <div className="select-options" ref={drp}>
