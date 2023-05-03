@@ -1,13 +1,29 @@
 import reactLogo from '../assets/react.svg'
-import {useState, useRef} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import CandidateCard from './CandidateCard'
+import { RoundCard } from './RoundCard'
 
-export default function Results({election}) {
+export default function Results({election, close}) {
   const cands = useRef(null)
   const rounds = useRef(null)
   const [candidates, setCandidates] = useState(election.candidates)
   const [viewC, setViewC] = useState(true)
   const [viewR, setViewR] = useState(true)
+  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    loadResults()
+  }, []);
+
+  const loadResults = async() =>{
+    // get election results
+    setLoading(true)
+    const resp = await fetch("/results.json")
+    const data = await resp.json()
+    setData({...data})
+    setLoading(false)
+  }
 
   const toggleC = ()=>{
     if(viewC){
@@ -29,6 +45,11 @@ export default function Results({election}) {
 
   return (
     <div className="results">
+      <div className="end">
+        <div className="close" onClick={()=>close()}>
+          x
+        </div>
+      </div>
       <div className="info">
         <span>{election.title}</span>
         <span className="notice">On: {election.date}</span>
@@ -37,10 +58,10 @@ export default function Results({election}) {
         <span className="notice-win">winner</span>
         <div className="row-div">
           <img src={reactLogo} alt="alt" className='profile'/>
-          <span>Candidate name</span>
+          {!loading && <span>{data.winner.name}</span>}
         </div>
         <div className="row-div-center">
-          <span>party name</span>
+          {!loading && <span>{data.winner.party}</span>}
           <img src={reactLogo} alt="alt" className='party-pic'/>
         </div>
       </div>
@@ -60,11 +81,7 @@ export default function Results({election}) {
           Rounds
           <div className="drop-down down" ref={rounds}></div> 
         </span>
-        <div className="view-list">
-          {
-            viewR && candidates.map((v, i)=> <CandidateCard key={i} view={true}/>)
-          }
-        </div>
+        {viewR && !loading && <RoundCard data={data.round}/>}
       </div>
     </div>
   )

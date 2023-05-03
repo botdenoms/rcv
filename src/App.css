@@ -51,7 +51,7 @@
   user-select: none;
   padding: 10px;
   border-radius: 10px;
-  background: #2b3b66;
+  background: #2b3b66be;
 }
 
 .home{
@@ -197,6 +197,104 @@ textarea, input{
 textarea,input:focus{
   /* background: #11c1cc; */
   outline: none;
+}
+
+.round-title{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+  /* background: #11c1cc; */
+}
+
+.rounds-nav{
+  margin: 5px;
+  background: #2b3b66;
+  border-radius: 5px;
+  user-select: none;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
+
+.content-box{
+  margin: 5px 0;
+  background: white;
+  color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.info-content{
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bars{
+  transition: all 1s;
+  transition-delay: 500ms;
+  height: 10px;
+  width: 0%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.brs-win{
+  background: #29eb70d0;
+}
+
+.brs-min{
+  background: #eb3629d0;
+}
+
+.brs-none{
+  background: #29ebd1d0;
+}
+
+
+.candidate{
+  display: flex;
+  align-items: flex-end;
+}
+
+.bg-text{
+  font-weight: 700;
+}
+
+.bg-name{
+  color: 14px;
+}
+
+.sm-name{
+  font-size: 10px;
+  color: #1e1e1e;
+}
+
+.outcomes{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gr-text{
+  margin: 0 5px;
+  color: #398655;
+  font-weight: 500;
+}
+
+.per-text{
+  margin: 0 5px;
+  color: #29eb70;
+  font-weight: 500;
+}
+
+.details{
+  padding: 5px;
 }
 
 .picker{
@@ -411,6 +509,14 @@ textarea,input:focus{
   cursor: pointer;
 }
 
+.guide{
+  margin: 10px;
+}
+
+.desc{
+  font-size: 15px;
+}
+
 .cand-info{
   display: flex;
   flex-direction: column;
@@ -425,11 +531,33 @@ textarea,input:focus{
   margin: 10px 0;
 }
 
+.highlights{
+  margin: 5px;
+  min-width: 120px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cirl{
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #398655;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 2px solid #599e72;
+}
+
 .view-list{
   display: flex;
   width: 100%;
   /* background: #11c1cc; */
   overflow-x: auto;
+  margin: 1px 0;
 }
 
 .row-div-center{

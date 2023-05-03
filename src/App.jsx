@@ -17,6 +17,7 @@ function App() {
   const [elections, setElections] = useState([])
   const [election, setElection] = useState({})
   const [loading, setLoading] = useState(true)
+  const [live, setLive] = useState(false)
 
   const loadData = async()=>{
     const resp = await fetch("/elections.json")
@@ -39,8 +40,10 @@ function App() {
     // to results or vote page
     setElection(elec)
     if (index === 0) {
+      setLive(true)
       setTab(2)
     }else if(index === 1){
+      setLive(false)
       setTab(2)
     }else{
       setTab(3)
@@ -56,7 +59,7 @@ function App() {
         tab === 1 && !loading && <CreateForm close={close}/>
       }
       {
-        tab === 2 && !loading && <Vote election={election} close={close}/>
+        tab === 2 && !loading && <Vote election={election} close={close} live={live}/>
       }
       {
         tab > 2 && !loading && <Results election={election} close={close}/>
