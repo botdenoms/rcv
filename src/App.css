@@ -282,12 +282,21 @@ textarea,input:focus{
 }
 
 .gr-text{
+  transition: 1s;
+  transition-delay: 2s;
   margin: 0 5px;
   color: #398655;
   font-weight: 500;
 }
 
+.gains{
+  color: #29eb70;
+  opacity: .4;
+}
+
 .per-text{
+  transition: 1s;
+  transition-delay: 500ms;
   margin: 0 5px;
   color: #29eb70;
   font-weight: 500;

@@ -30,7 +30,7 @@ export const RoundCard = ({data=[]}) => {
         </div>
       </div>
       {
-        data[index].candidates.sort((a, b)=> b.votes - a.votes).map((v,i)=> <RoundRow data={v} key={i} min={v.eliminated} winner={v.winner}/>)
+        data[index].candidates.sort((a, b)=> b.votes - a.votes).map((v,i)=> <RoundRow data={v} key={i} min={v.eliminated} winner={v.winner} index={index}/>)
       }
     </div>
   )
