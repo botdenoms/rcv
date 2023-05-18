@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Vote from './components/Vote'
 import Results from './components/Results'
 import CreateForm from './components/CreateForm'
+import { ResultsGen } from './components/ResultsGen'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   const [election, setElection] = useState({})
   const [loading, setLoading] = useState(true)
   const [live, setLive] = useState(false)
+  const [result, setResult] = useState(false)
 
   const loadData = async()=>{
     const resp = await fetch("/elections.json")
@@ -46,7 +48,14 @@ function App() {
       setLive(false)
       setTab(2)
     }else{
-      setTab(3)
+      // check if results present
+      // true goes to results
+      // false to generate
+      if (result) {
+        setTab(3)
+        return
+      }
+      setTab(-1)
     }
   }
 
@@ -66,6 +75,9 @@ function App() {
       }
       {
         tab !== 1 && tab !== 2 && <Create callback={newElection}/>
+      }
+      {
+        tab === -1 && !loading && <ResultsGen election={election} close={close} />
       }
     </div>
   )
