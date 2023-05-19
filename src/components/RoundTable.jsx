@@ -1,7 +1,7 @@
 import React from 'react'
 import RoundTableRow from './RoundTableRow'
 
-export default function RoundTable() {
+export default function RoundTable({data={}}) {
     return (
         <div className="round">
             <h3>Round x</h3>

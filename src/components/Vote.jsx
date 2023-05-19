@@ -6,7 +6,7 @@ export default function Vote({election, close, live=false}) {
 
   const drp = useRef(null)
   const [candidates, setCandidates] = useState([...election.candidates])
-  const [view, setView] = useState(true)
+  const [view, setView] = useState(false)
   const [choiceIdx, setChoiceIdx] = useState(0)
   const [preview, setPreview] = useState(false)
   const [yourList, setYourList] = useState([])
